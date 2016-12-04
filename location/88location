@@ -1,0 +1,13 @@
+#!/bin/bash
+
+IF=$1
+STATUS=$2
+
+LOCATION_FILE=/etc/location
+
+write_location() {
+	sleep 5
+	get_location.sh > $LOCATION_FILE
+}
+
+[ "$STATUS" == "up" ] && write_location &
