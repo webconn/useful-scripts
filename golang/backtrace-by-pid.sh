@@ -6,7 +6,7 @@ GOPID=$1
 TEMPFILE=`tempfile`
 
 # run strace
-strace -e write -p $GOPID -o $TEMPFILE & STRACE_PID=$!
+strace -e write -s 1024 -p $GOPID -o $TEMPFILE & STRACE_PID=$!
 
 # TODO: wait for strace to be attached more properly
 sleep 5
